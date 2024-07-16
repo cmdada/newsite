@@ -6,7 +6,7 @@
     dayjs.extend(relativeTime)
     dayjs.extend(duration)
 
-    const birthday = dayjs("2008-03-10T00:00:00+08:00");
+    const birthday = dayjs("2008-03-11T00:00:00+08:00");
     const birthdayThisYear = birthday.year(dayjs().year())
     export let now = dayjs();
     export let age = now.diff(birthday, "years", true)
