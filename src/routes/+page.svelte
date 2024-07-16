@@ -51,9 +51,9 @@
 
     <p class="separator p-note">proffessional nerd</p>
     <p class="p-note">sysadmin cosplayer<sup><a href="https://youtube.com/c/JeffGeerling">?</a></sup></p>
-    <p class="p-note">big mizuki (prsk) fan</p>
-    <p><span class="p-region">US/CO</span>er</p>
-    <p class="p-note p-gender-identity">trans girl</p>
+    <p class="p-note">big 2036 (frc) fan</p>
+    <p><span class="p-region">colorado</span>er</p>
+    <p class="p-note p-gender-identity">she/her</p>
 
     <p class="separator">quick links</p>
     <p>
