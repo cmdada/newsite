@@ -1,0 +1,17 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:me@adabit.org
+Expires: 2025-01-01T00:00:00.000Z
+Encryption: https://adabit.org/agekeys.txt
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/8F3B277901484C6EA7E63F82D539637D518022C6
+Preferred-Languages: en
+Canonical: https://adabit.org/.well-known/security.txt
+Canonical: https://adabit.org/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSPOyd5AUhMbqfmP4LVOWN9UYAixgUCZfVSygAKCRDVOWN9UYAi
+xmgHAPwM6gxKBB1JPTeFZZDdoorZz3+D2GefEjlxi2nryD2rkAD/cy0GeU0+QFRs
+16AVDnhpVqru8FdClL/Lppx7yrc1rAY=
+=kzBH
+-----END PGP SIGNATURE-----
