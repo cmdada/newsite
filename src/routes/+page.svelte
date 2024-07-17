@@ -57,9 +57,9 @@
 
     <p class="separator">quick links</p>
     <p>
-        <a href="https://github.com/cmdada" rel="me" class="text-muted u-url">GitHub</a>
+        <a href="https://github.com/cmdada" rel="me" class="text-rose u-url">GitHub</a>
         -&gt;
-        <a href="https://dev.to/galtzo/im-leaving-github-50ba" class="text-rose">Why not GitHub</a>
+        <a href="https://sanctum.geek.nz/why-not-github.html" class="text-muted">Why not GitHub</a>
     </p>
     <p>@ -> <a href="mailto:me@adabit.org?subject=Hello!" class="u-email">me@adabit.org</a></p>
 
