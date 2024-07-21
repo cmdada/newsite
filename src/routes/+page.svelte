@@ -39,17 +39,13 @@
 
     
     <a style="display: none" class="u-url u-uid" href="https://adabit.org">adabit.org</a>
-    <p>
-        born on
-        <span class="dt-bday">{birthday.format("YYYY-MM-DD")}</span>
-    </p>
     <!-- least cursed leap year detection -->
     <p>{String((Math.round(age * 10000000) / 10000000)).padEnd(10, "0")} years old</p>
     {#if daysLeft.asDays() >= -31 && daysLeft.asSeconds() < 0}
         <p>can you believe it folks‽ birthday! just {(daysLeft).humanize()} away‼</p>
     {/if}
 
-    <p class="separator p-note">proffessional nerd</p>
+    <p class="separator p-note">professional nerd</p>
     <p class="p-note">sysadmin cosplayer<sup><a href="https://youtube.com/c/JeffGeerling">?</a></sup></p>
     <p class="p-note">big 2036 (frc) fan</p>
     <p class="p-note p-gender-identity">she/her</p>
