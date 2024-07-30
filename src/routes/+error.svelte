@@ -17,7 +17,7 @@
         <p><code>site@adabit.org [1]$ </code></p>
     {:else}
         <p><code>site@adabit.org$ cd {$page.url.pathname}</code></p>
-        <p><code>site@adabit.org$ /nix/store/b4b64039m0v2wwahj0d59fa2hv6zc77n-adabit.org/show</code></p>
+        <p><code>site@adabit.org$ /home/ada/adabit.org/show</code></p>
         <pre>Trying to render page...
 [1]   {pid}  segmentation fault (core dumped)  show</pre>
         <p><code>site@adabit.org [139]$ coredumpctl debug {pid} -A "--batch -ex bt" -q</code></p>
