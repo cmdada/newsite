@@ -19,7 +19,7 @@
     export let timeDisplay: string = new Date().toLocaleString();
     setInterval(() => {
         timeDisplay = new Date().toLocaleString();
-    }, 500);
+    }, 200);
 
     // the first thing i did completely by myself without looking up guides and i'm happy with it
     beforeNavigate(() => {
