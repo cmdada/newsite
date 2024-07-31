@@ -84,17 +84,12 @@
 </div>
 
 <hr />
-<div id="footer" use:twemoji>
-    <p>🏳️‍🌈</p>
-
-
     <noscript>
         <div id="nojs">
             <p>JavaScript is currently not enabled or not supported, though this site should still work fine.</p>
             <p>If there are any accessibility issues, please do not hesitate to contact me at siteaccessibility@adabit.org</p>
         </div>
     </noscript>
-</div>
 
 <style lang="sass">
     #header
