@@ -4,7 +4,6 @@
     import { afterNavigate, beforeNavigate } from "$app/navigation";
     import { browser } from "$app/environment";
     import { navigating, page } from "$app/stores";
-    import twemoji from "$lib/actions/twemoji";
     import { onMount } from "svelte";
 
     import IconShuffle from "~icons/ph/shuffle";
