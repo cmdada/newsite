@@ -69,7 +69,7 @@
 
     .u-photo
         border-radius: 50%
-        height: 2em
+        height: 6em
         vertical-align: middle
 
     .inline-img
