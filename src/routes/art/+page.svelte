@@ -12,10 +12,10 @@
     <title>site@adabit.org ~/Art</title>
     <style>
     div.gallery {
-      margin: 5px;
       border: 1px solid #ccc;
+      margin: 7px;
       float: left;
-      width: 180px;
+      width: 168.2px;
     }
     
     div.gallery:hover {
@@ -36,7 +36,6 @@
 
 <div class="content">
   <h2>Art</h2>
-  <div class="para">
     <div class="gallery">
       <img src="pic01.jpg" alt="heartless" width="600" height="400">
       <div class="desc">heartless</div>
@@ -62,7 +61,6 @@
       <div class="desc">heartless</div>
       <div class="desc">not related to the great LJG song of the same name</div>
     </div>
-  </div>
 </div>
 <style lang="scss">
     .para {
