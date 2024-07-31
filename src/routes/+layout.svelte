@@ -84,7 +84,7 @@
 </div>
 
 <hr />
-<div id="footer" use:twemoji>
+<div id="footer">
     <p>🏳️‍🌈</p>
 
 
