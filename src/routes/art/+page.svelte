@@ -61,6 +61,11 @@
       <div class="desc">heartless</div>
       <div class="desc">not related to the great LJG song of the same name</div>
     </div>
+    <div class="gallery">
+      <img src="https://avatars.githubusercontent.com/u/79297197?v=4" alt="my pfp" width="600" height="400">
+      <div class="desc">my pfp</div>
+      <div class="desc">a fairly quick pixel art drawing of tuba (2036's crescendo bot)</div>
+    </div>
 </div>
 <style lang="scss">
     .para {
