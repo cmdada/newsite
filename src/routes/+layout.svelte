@@ -82,11 +82,7 @@
 <div use:twemoji>
     <slot />
 </div>
-	<div id="footer" use:twemoji>
-	    <p>🏳️‍🌈</p>
-	
-	
-	
+
 <hr />
     <noscript>
         <div id="nojs">
@@ -94,7 +90,7 @@
             <p>If there are any accessibility issues, please do not hesitate to contact me at siteaccessibility@adabit.org</p>
         </div>
     </noscript>
-</div>
+
 <style lang="sass">
     #header
         display: flex

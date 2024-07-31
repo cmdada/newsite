@@ -44,7 +44,7 @@
     <div class="gallery">
       <img src="pic02.jpg" alt="i want to be pretty" width="600" height="400">
       <div class="desc">i want to be pretty</div>
-      <div class="desc">a very high effort drawing you shouldnt read into</div>
+      <div class="desc">im not at all trans</div>
     </div>
     <div class="gallery">
       <img src="pic04.jpg" alt="sinking" width="600" height="400">
