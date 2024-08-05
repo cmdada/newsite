@@ -66,6 +66,12 @@
       <div class="desc">my pfp</div>
       <div class="desc">a fairly quick pixel art drawing of tuba (2036's crescendo bot)</div>
     </div>
+    <div class="gallery">
+      <img src="shorkhehe.png" alt="robosharks logo" width="600" height="400">
+      <div class="desc">robosharks logo</div>
+      <div class="desc">logo for boulder high robotics</div>
+    </div>
+    
 </div>
 <style lang="scss">
     .para {
