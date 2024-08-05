@@ -71,6 +71,11 @@
       <div class="desc">robosharks logo</div>
       <div class="desc">logo for boulder high robotics</div>
     </div>
+    <div class="gallery">
+      <img src="goals.png" alt="goals" width="600" height="400">
+      <div class="desc">goals</div>
+      <div class="desc">i had fun with the colors on this one</div>
+    </div>
     
 </div>
 <style lang="scss">
