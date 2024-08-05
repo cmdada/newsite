@@ -25,6 +25,9 @@
     div.gallery img {
       width: 100%;
       height: auto;
+      image-rendering: pixelated;
+  	  image-rendering: -moz-crisp-edges;
+ 	  image-rendering: crisp-edges;
     }
     
     div.desc {
