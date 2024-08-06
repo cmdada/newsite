@@ -14,6 +14,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
+      lucide-svelte:
+        specifier: ^0.424.0
+        version: 0.424.0(svelte@4.2.12)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
@@ -754,6 +757,11 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lucide-svelte@0.424.0:
+    resolution: {integrity: sha512-mrEapPPlH5PWGMI0zs3dctR/6NylLx1VM9avRmH4OHN5aaldk4QYd/wTooROD4H6OKlC+7XOdgz0zX1tSxFlXw==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   magic-string@0.30.8:
     resolution: {integrity: sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==}
@@ -1797,6 +1805,10 @@ snapshots:
       p-locate: 5.0.0
 
   lru-cache@10.4.3: {}
+
+  lucide-svelte@0.424.0(svelte@4.2.12):
+    dependencies:
+      svelte: 4.2.12
 
   magic-string@0.30.8:
     dependencies:

@@ -1,8 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { fade } from 'svelte/transition';
+    import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
-    let selectedImage = null;
+    let selectedImageIndex = 0;
     let showModal = false;
 
     const images = [
@@ -16,14 +17,32 @@
         { src: "goals.png", alt: "goals", title: "goals", description: "i had fun with the colors on this one" }
     ];
 
-    function openModal(image) {
-        selectedImage = image;
+    function openModal(index) {
+        selectedImageIndex = index;
         showModal = true;
     }
 
     function closeModal() {
         showModal = false;
     }
+
+    function navigate(direction) {
+        selectedImageIndex = (selectedImageIndex + direction + images.length) % images.length;
+    }
+
+    function handleKeydown(event) {
+        if (!showModal) return;
+        if (event.key === 'ArrowLeft') navigate(-1);
+        if (event.key === 'ArrowRight') navigate(1);
+        if (event.key === 'Escape') closeModal();
+    }
+
+    onMount(() => {
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('keydown', handleKeydown);
+        };
+    });
 </script>
 
 <svelte:head>
@@ -33,8 +52,8 @@
 <div class="content">
     <h2>Art</h2>
     <div class="image-grid">
-        {#each images as image}
-            <div class="image-item" on:click={() => openModal(image)}>
+        {#each images as image, index}
+            <div class="image-item" on:click={() => openModal(index)}>
                 <img src={image.src} alt={image.alt} />
                 <div class="image-caption">{image.title}</div>
             </div>
@@ -45,10 +64,16 @@
 {#if showModal}
     <div class="modal" on:click={closeModal} transition:fade>
         <div class="modal-content" on:click|stopPropagation>
-            <img src={selectedImage.src} alt={selectedImage.alt} />
-            <h3>{selectedImage.title}</h3>
-            <p>{selectedImage.description}</p>
+            <img src={images[selectedImageIndex].src} alt={images[selectedImageIndex].alt} />
+            <h3>{images[selectedImageIndex].title}</h3>
+            <p>{images[selectedImageIndex].description}</p>
         </div>
+        <button class="nav-button prev" on:click|stopPropagation={() => navigate(-1)}>
+            <ChevronLeft size={24} />
+        </button>
+        <button class="nav-button next" on:click|stopPropagation={() => navigate(1)}>
+            <ChevronRight size={24} />
+        </button>
     </div>
 {/if}
 
@@ -105,7 +130,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.8);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -113,29 +138,65 @@
     }
 
     .modal-content {
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
         padding: 20px;
-        max-width: 400px;
+        max-width: 80%;
         max-height: 90%;
-        overflow-y: auto;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
 
         img {
             max-width: 100%;
-            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
             margin-bottom: 15px;
         }
 
         h3 {
             margin-bottom: 10px;
             text-align: center;
+            color: white;
         }
 
         p {
             text-align: center;
+            color: white;
+        }
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.prev {
+            left: 20px;
+        }
+
+        &.next {
+            right: 20px;
         }
     }
 
@@ -152,8 +213,20 @@
 
         .modal-content {
             padding: 15px;
-            max-width: 340px;
+            max-width: 90%;
+        }
 
+        .nav-button {
+            width: 40px;
+            height: 40px;
+
+            &.prev {
+                left: 10px;
+            }
+
+            &.next {
+                right: 10px;
+            }
         }
     }
 
@@ -170,7 +243,20 @@
 
         .modal-content {
             padding: 10px;
-            max-width: 100%;
+            max-width: 95%;
+        }
+
+        .nav-button {
+            width: 30px;
+            height: 30px;
+
+            &.prev {
+                left: 5px;
+            }
+
+            &.next {
+                right: 5px;
+            }
         }
     }
 </style>

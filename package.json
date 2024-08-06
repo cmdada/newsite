@@ -36,6 +36,7 @@
 	"dependencies": {
 		"@iconify-json/mdi": "^1.1.64",
 		"dayjs": "^1.11.10",
+		"lucide-svelte": "^0.424.0",
 		"typescript": "^5.4.2"
 	}
 }
