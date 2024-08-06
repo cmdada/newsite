@@ -76,6 +76,9 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            image-rendering: pixelated;
+		    image-rendering: -moz-crisp-edges;
+		    image-rendering: crisp-edges;
         }
 
         &:hover img {
@@ -116,7 +119,7 @@
         border-radius: 8px;
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             margin-bottom: 15px;
         }
