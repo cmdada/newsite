@@ -1,29 +1,12 @@
-<script lang="ts">
-    import type { PageData } from "./$types"
-    // import sites from "$lib/constants/sites";
-
-    export let serviceList;
-    export let data: PageData;
-</script>
-
 <svelte:head>
-    <title>site@adabit.org ~/Services</title>
+    <title>site@adabit.org ~/Servers</title>
 </svelte:head>
 
 <div class="content">
-    <h2>Services</h2>
+    <h2>Servers</h2>
     <div class="para">
-        <p><b>Service status: </b><a href="//status.adabit.org">status.adabit.org</a></p>
-        <p>Running {data.xnix} {data.kernel}</p>
-    </div>
-    <div class="service-list" bind:this={serviceList}>
-        {#each data.services as service}
-            {service}
-            <!--
-                component, showing
-                <Service {service} />
-            -->
-        {/each}
+        <p><b>Server status: </b><a href="//status.adabit.org">status.adabit.org</a></p>
+        <p>Running ArchLinux 6.9-ada</p>
     </div>
 </div>
 
