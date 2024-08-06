@@ -57,6 +57,15 @@
         <a href="https://sanctum.geek.nz/why-not-github.html" class="text-muted">Why not GitHub</a>
     </p>
     <p>@ -> <a href="mailto:me@adabit.org?subject=Hello!" class="u-email">me@adabit.org</a></p>
+
+    <p class=separator>
+      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+      <img src="https://img.shields.io/badge/JavaScript-D92E8A?style=for-the-badge&logo=javascript&logoColor=white" />
+      <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+      <img src="https://img.shields.io/badge/CSS3-0084ff?style=for-the-badge&logo=css3&logoColor=white" />
+      <img src="https://img.shields.io/badge/C-b084ff?style=for-the-badge&logo=c&logoColor=white" />
+      <img src="https://img.shields.io/badge/Svelte-04243f?style=for-the-badge&logo=svelte&logoColor=white" />
+    </p>
 <hr />
 <div id="footer">
     <noscript>
