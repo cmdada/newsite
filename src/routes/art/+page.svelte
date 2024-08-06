@@ -70,6 +70,7 @@
         cursor: pointer;
         overflow: hidden;
         aspect-ratio: 1 / 1;
+        width: 100%;
 
         img {
             width: 100%;
@@ -77,8 +78,8 @@
             object-fit: cover;
             transition: transform 0.3s ease;
             image-rendering: pixelated;
-		    image-rendering: -moz-crisp-edges;
-		    image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
 
         &:hover img {
@@ -94,6 +95,7 @@
             color: white;
             padding: 10px;
             text-align: center;
+            font-size: 14px;
         }
     }
 
@@ -112,20 +114,63 @@
 
     .modal-content {
         background: rgba(0,0,0,0.6);
-        padding: 5px;
-        max-width: 80%;
-        max-height: 80%;
+        padding: 20px;
+        max-width: 400px;
+        max-height: 90%;
         overflow-y: auto;
         border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             margin-bottom: 15px;
         }
 
         h3 {
             margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .image-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .image-item .image-caption {
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .modal-content {
+            padding: 15px;
+            max-width: 340px;
+
+        }
+    }
+
+    @media (max-width: 480px) {
+        .image-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .image-item .image-caption {
+            font-size: 10px;
+            padding: 3px;
+        }
+
+        .modal-content {
+            padding: 10px;
+            max-width: 100%;
         }
     }
 </style>
