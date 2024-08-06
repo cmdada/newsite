@@ -10,13 +10,14 @@
     <h1>Commissions</h1>
     <div class="para">
         <p>My commissions are open! 🎨</p>
+        <h2>Art</h2>
         <p>Looking for unique, personalized pixel art? I specialize in:</p>
         <ul>
             <li>Human character designs</li>
             <li>Fantasy backgrounds</li>
             <li>Logos and Icons</li>
         </ul>
-        <p>Websites</p>
+        <h2>Websites</h2>
 		<p>I have experience with full-stack website development using html5, css, js, ts, svelte, vue, vite, and sql</p>
         <p>Interested? Contact me for pricing, examples, and availability either by <a href="mailto:art@adabit.org">email</a> or <a href="https://instagram.com/cmdada_art">@cmdada_art</a> on Instagram.</p>
     </div>
@@ -30,7 +31,7 @@
     }
 
     h2 {
-        color: #333;
+        color: #ffffff;
         border-bottom: 2px solid #ddd;
         padding-bottom: 0.5em;
     }
