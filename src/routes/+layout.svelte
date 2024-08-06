@@ -61,7 +61,7 @@
 
 <div id="loadingBar" style:width={`${navprogress}%`} class:active={showProgress} />
 
-<nav class="sticky">
+<nav class="sticky" style="z-index:10">
     <div>
         <div id="header">
             <p id="site-name">adabit.org<sup>★</sup></p>
