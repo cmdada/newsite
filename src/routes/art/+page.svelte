@@ -15,7 +15,8 @@
         { src: "https://avatars.githubusercontent.com/u/79297197?v=4", alt: "my pfp", title: "my pfp", description: "a fairly quick pixel art drawing of tuba (2036's crescendo bot)" },
         { src: "shorkhehe.png", alt: "robosharks logo", title: "robosharks logo", description: "logo for boulder high robotics" },
         { src: "swimmingly.png", alt: "swimmingly", title: "swimmingly", description: "may it go swimmingly (commission)" },
-        { src: "goals.png", alt: "goals", title: "goals", description: "i had fun with the colors on this one" }
+        { src: "goals.png", alt: "goals", title: "goals", description: "i had fun with the colors on this one" },
+        { src: "outlinedcaek.png", alt: "om nom", title: "om nom", description: "emoji for batfam made for sal" }
     ];
 
     function openModal(index) {
