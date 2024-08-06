@@ -16,7 +16,9 @@
             <li>Fantasy backgrounds</li>
             <li>Logos and Icons</li>
         </ul>
-        <p>Interested? Contact me for pricing and availability either by <a href="mailto:art@adabit.org">email</a> or <a href="https://instagram.com/cmdada_art">@cmdada_art on Instagram</a>.</p>
+        <p>Websites</p>
+		<p>I have experience with full-stack website development using html5, css, js, ts, svelte, vue, vite, and sql</p>
+        <p>Interested? Contact me for pricing, examples, and availability either by <a href="mailto:art@adabit.org">email</a> or <a href="https://instagram.com/cmdada_art">@cmdada_art</a> on Instagram.</p>
     </div>
 </div>
 
