@@ -22,6 +22,7 @@
 
 <svelte:head>
     <title>site@adabit.org ~/Home</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="29c25358-0565-49e1-861c-fa24e19249a9"></script>
 </svelte:head>
 
 <div class="content h-card">
