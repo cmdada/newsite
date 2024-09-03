@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-    <title>site@adabit.org ~/Services</title>
+    <title>site@adabit.org ~/Commissions</title>
 </svelte:head>
 
 <div class="content">

@@ -47,7 +47,8 @@
 
     <p class="separator p-note">professional nerd</p>
     <p class="p-note">sysadmin cosplayer<sup><a href="https://youtube.com/c/JeffGeerling">?</a></sup></p>
-    <p class="p-note">big 2036 (frc) fan</p>
+    <p class="p-note">FRC 1157 Team Captain 2024-</p>
+    <p class="p-note">FRC 2036 Electrical lead 2023-2024</p>
     <p class="p-note p-gender-identity">she/her</p>
 
     <p class="separator">quick links</p>
