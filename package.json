@@ -17,7 +17,7 @@
 		"@iconify-json/ph": "^1.2.1",
 		"@iconify-json/simple-icons": "^1.2.9",
 		"@sveltejs/adapter-node": "^5.2.8",
-		"@sveltejs/kit": "^2.7.2",
+		"@sveltejs/kit": "^2.8.3",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"firacode": "^6.2.0",
 		"js-yaml": "^4.1.0",
