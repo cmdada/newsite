@@ -72,8 +72,8 @@
         <div id="nav">
             <a href="/" class:current={$page.url.pathname == "/"}>~/Home</a>
             <a href="/art" class:current={$page.url.pathname == "/art"}>~/Art</a>
-            <a href="/services" class:current={$page.url.pathname == "/services"}>~/Servers</a>
             <a href="/commissions" class:current={$page.url.pathname == "/commissions"}>~/Commissions</a>
+            <a href="/blog" class:current={$page.url.pathname == "/blog"}>~/Blog</a>
         </div>
         <hr />
     </div>
