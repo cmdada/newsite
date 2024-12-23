@@ -77,8 +77,8 @@
     .layout {
         display: grid;
         grid-template-columns: .2fr 1fr;
-        gap: 2rem;
-        max-width: 1200px;
+        gap: 1rem;
+        
         margin: 0 auto;
         padding: 1rem;
     }
@@ -89,12 +89,6 @@
         height: fit-content;
         padding: 1rem;
         border-right: 1px solid #eee;
-
-        h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.2em;
-        }
 
         ul {
             list-style: none;
@@ -107,7 +101,6 @@
         }
 
         a {
-            color: #0066cc;
             text-decoration: none;
             display: block;
             margin-bottom: 0.3em;
@@ -129,22 +122,6 @@
     }
 
     /* Article styles */
-    h1 {
-        font-size: 2em;
-        margin-bottom: 1em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-        margin-top: 0.5em;
-        margin-bottom: 0.2em;
-    }
-
-    h3 {
-        font-size: 1.2em;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-    }
 
     .post {
         margin-bottom: 3em;
