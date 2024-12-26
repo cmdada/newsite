@@ -16,7 +16,8 @@
         { src: "shorkhehe.png", alt: "robosharks logo", title: "robosharks logo", description: "logo for boulder high robotics" },
         { src: "swimmingly.png", alt: "swimmingly", title: "swimmingly", description: "may it go swimmingly (commission)" },
         { src: "goals.png", alt: "goals", title: "goals", description: "i had fun with the colors on this one" },
-        { src: "outlinedcaek.png", alt: "om nom", title: "om nom", description: "emoji for batfam made for sal" }
+        { src: "outlinedcaek.png", alt: "om nom", title: "om nom", description: "emoji for batfam made for sal" },
+        { src: "by4.png", alt: "2by2", title: "2by2", description: "what's better than 1? 4" }
     ];
 
     function openModal(index) {
