@@ -70,10 +70,10 @@
             </p>
         </div>
         <div id="nav">
-            <a href="/" class:current={$page.url.pathname == "/"}>~/Home</a>
-            <a href="/art" class:current={$page.url.pathname == "/art"}>~/Art</a>
-            <a href="/commissions" class:current={$page.url.pathname == "/commissions"}>~/Commissions</a>
-            <a href="/blog" class:current={$page.url.pathname == "/blog"}>~/Blog</a>
+            <a href="/" class:current={$page.url.pathname == "/"}>~/home</a>
+            <a href="/art" class:current={$page.url.pathname == "/art"}>~/art</a>
+            <a href="/commissions" class:current={$page.url.pathname == "/commissions"}>~/commissions</a>
+            <a href="/blog" class:current={$page.url.pathname == "/blog"}>~/blog</a>
         </div>
         <hr />
     </div>

@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>site@adabit.org ~/Blog</title>
+    <title>site@adabit.org ~/blog</title>
 </svelte:head>
 
 <div class="layout">

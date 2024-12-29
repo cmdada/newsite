@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head>
-    <title>site@adabit.org ~/Art</title>
+    <title>site@adabit.org ~/art</title>
 </svelte:head>
 
 <div class="content">

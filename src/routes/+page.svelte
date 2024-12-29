@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-    <title>site@adabit.org ~/Home</title>
+    <title>site@adabit.org ~/home</title>
 </svelte:head>
 
 <div class="content h-card">
