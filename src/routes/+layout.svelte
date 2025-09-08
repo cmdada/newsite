@@ -121,6 +121,7 @@
             <a href="/art" class:current={$page.url.pathname == "/art"}>~/art</a>
             <a href="/commissions" class:current={$page.url.pathname == "/commissions"}>~/commissions</a>
             <a href="/blog" class:current={$page.url.pathname == "/blog"}>~/blog</a>
+            <a href="/services" class:current={$page.url.pathname == "/services"}>~/services</a>
         </div>
         <hr />
     </div>
