@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type { PageData } from "./$types"
     import { onMount } from 'svelte';
     
     interface ProjectFile {
@@ -24,17 +23,19 @@
     let selectedProject: Project | null = null;
     let showNewProjectForm = false;
     let showAddFileForm = false;
+    let showSignInForm = false;
     let fileInput: HTMLInputElement;
     let dragOver = false;
     let loading = false;
     let error = '';
+    let signedIn = false;
+    let username = '';
+    let password = '';
     
-    // New project form
     let newProjectName = '';
     let newProjectDescription = '';
     let newProjectTags = '';
     
-    // Add file form
     let fileDescription = '';
     let linkUrl = '';
     let linkName = '';
@@ -61,7 +62,7 @@
                 throw new Error('Failed to load projects');
             }
         } catch (err) {
-            error = 'Failed to load projects. Using local storage as fallback.';
+            error = 'Failed to load projects. Using local storage for testing.';
             loadFromLocalStorage();
         } finally {
             loading = false;
@@ -99,7 +100,7 @@
                 throw new Error('Failed to save to server');
             }
         } catch (err) {
-            error = 'Failed to save to server. Saved locally instead.';
+            error = 'Failed to save to server. Saved to web storage locally instead.';
             localStorage.setItem('projectsData', JSON.stringify(projects));
         }
     }
@@ -127,7 +128,7 @@
     }
     
     async function deleteProject(projectId: string) {
-        if (!confirm('Are you sure you want to delete this project?')) return;
+        if (!confirm('Are you sure 🤨?')) return;
         
         projects = projects.filter(p => p.id !== projectId);
         if (selectedProject?.id === projectId) {
@@ -172,7 +173,6 @@
                     selectedProject.files = [...selectedProject.files, newFile];
                     await saveProjects();
                 } else {
-                    // Fallback to base64 for images
                     if (file.type.startsWith('image/')) {
                         const reader = new FileReader();
                         reader.onload = async (e) => {
@@ -243,6 +243,21 @@
     function handleDragLeave() {
         dragOver = false;
     }
+
+    function signIn() {
+        if (username === 'admin' && password === 'password') {
+            signedIn = true;
+            showSignInForm = false;
+            error = '';
+        } else {
+            error = 'Invalid username or password';
+        }
+    }
+
+    function signOut() {
+        signedIn = false;
+        selectedProject = null;
+    }
 </script>
 
 <svelte:head>
@@ -251,14 +266,21 @@
 
 <div class="content">
     <header class="page-header">
-        <h1>Project Manager</h1>
-        <button class="btn btn-primary" on:click={() => showNewProjectForm = true}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"/>
-                <line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-            New Project
-        </button>
+        <h1>Projects</h1>
+        {#if signedIn}
+            <button class="btn btn-secondary" on:click={signOut}>Sign Out</button>
+            <button class="btn btn-primary" on:click={() => showNewProjectForm = true}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                New Project
+            </button>
+        {:else}
+            <button class="btn btn-primary" on:click={() => showSignInForm = true}>
+                Sign In
+            </button>
+        {/if}
     </header>
     
     {#if error}
@@ -292,16 +314,18 @@
                                 <span class="tag">{tag}</span>
                             {/each}
                         </div>
-                        <button 
-                            class="delete-btn"
-                            on:click|stopPropagation={() => deleteProject(project.id)}
-                            title="Delete project"
-                        >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="3,6 5,6 21,6"/>
-                                <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
-                            </svg>
-                        </button>
+                        {#if signedIn}
+                            <button 
+                                class="delete-btn"
+                                on:click|stopPropagation={() => deleteProject(project.id)}
+                                title="Delete project"
+                            >
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3,6 5,6 21,6"/>
+                                    <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
+                                </svg>
+                            </button>
+                        {/if}
                     </div>
                 {/each}
             </div>
@@ -315,13 +339,15 @@
                         <p>{selectedProject.description}</p>
                         <small>Created: {selectedProject.createdDate.toLocaleDateString()}</small>
                     </div>
-                    <button class="btn btn-secondary" on:click={() => showAddFileForm = true}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19"/>
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                        </svg>
-                        Add Files
-                    </button>
+                    {#if signedIn}
+                        <button class="btn btn-secondary" on:click={() => showAddFileForm = true}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Add Files
+                        </button>
+                    {/if}
                 </div>
                 
                 {#if selectedProject.files.length === 0}
@@ -331,7 +357,7 @@
                         on:drop={handleDrop}
                         on:dragover={handleDragOver}
                         on:dragleave={handleDragLeave}
-                        on:click={() => fileInput?.click()}
+                        on:click={() => signedIn && fileInput?.click()}
                         role="button"
                         tabindex="0"
                     >
@@ -365,16 +391,18 @@
                                             </svg>
                                         </div>
                                     {/if}
-                                    <button 
-                                        class="remove-btn"
-                                        on:click={() => removeFile(file.id)}
-                                        title="Remove file"
-                                    >
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <line x1="18" y1="6" x2="6" y2="18"/>
-                                            <line x1="6" y1="6" x2="18" y2="18"/>
-                                        </svg>
-                                    </button>
+                                    {#if signedIn}
+                                        <button 
+                                            class="remove-btn"
+                                            on:click={() => removeFile(file.id)}
+                                            title="Remove file"
+                                        >
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                                <line x1="6" y1="6" x2="18" y2="18"/>
+                                            </svg>
+                                        </button>
+                                    {/if}
                                 </div>
                                 <div class="file-info">
                                     <h4>
@@ -404,14 +432,13 @@
             {:else}
                 <div class="empty-state">
                     <h2>Select a project or create a new one</h2>
-                    <p>Choose a project from the sidebar to view and manage its files</p>
+                    <p>Choose a project from the sidebar to view and manage its files and links</p>
                 </div>
             {/if}
         </main>
     </div>
 </div>
 
-<!-- New Project Modal -->
 {#if showNewProjectForm}
     <div class="modal-overlay" on:click={() => showNewProjectForm = false}>
         <div class="modal" on:click|stopPropagation>
@@ -443,7 +470,6 @@
     </div>
 {/if}
 
-<!-- Add File Modal -->
 {#if showAddFileForm && selectedProject}
     <div class="modal-overlay" on:click={() => showAddFileForm = false}>
         <div class="modal" on:click|stopPropagation>
@@ -495,6 +521,24 @@
     </div>
 {/if}
 
+{#if showSignInForm}
+    <div class="modal-overlay" on:click={() => showSignInForm = false}>
+        <div class="modal" on:click|stopPropagation>
+            <h3>Sign In</h3>
+            <form on:submit|preventDefault={signIn}>
+                <input bind:value={username} placeholder="Username" required />
+                <input bind:value={password} placeholder="Password" type="password" required />
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" on:click={() => showSignInForm = false}>
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{/if}
+
 <style lang="scss">
     .content {
         max-width: 1400px;
@@ -510,7 +554,6 @@
         margin-bottom: 2em;
         
         h1 {
-            color: #ffffff;
             margin: 0;
         }
     }
@@ -527,20 +570,15 @@
         transition: all 0.3s ease;
         
         &.btn-primary {
-            background: #4CAF50;
-            color: white;
             
             &:hover {
-                background: #45a049;
             }
         }
         
         &.btn-secondary {
             background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
             
             &:hover {
-                background: rgba(255, 255, 255, 0.15);
             }
         }
     }
@@ -548,7 +586,6 @@
     .error-banner {
         background: rgba(255, 69, 69, 0.1);
         border: 1px solid rgba(255, 69, 69, 0.3);
-        color: #ff6b6b;
         padding: 1em;
         border-radius: 6px;
         margin-bottom: 1em;
@@ -559,7 +596,6 @@
         button {
             background: none;
             border: none;
-            color: #ff6b6b;
             font-size: 1.5em;
             cursor: pointer;
             padding: 0;
@@ -574,7 +610,6 @@
     .loading {
         text-align: center;
         padding: 2em;
-        color: #aaa;
     }
 
     .layout {
@@ -585,12 +620,10 @@
     }
 
     .sidebar {
-        background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 1.5em;
         
         h3 {
-            color: #ffffff;
             margin: 0 0 1em 0;
         }
     }
@@ -602,7 +635,6 @@
     }
 
     .project-item {
-        background: rgba(255, 255, 255, 0.05);
         border-radius: 8px;
         padding: 1em;
         cursor: pointer;
@@ -610,18 +642,15 @@
         position: relative;
         
         &:hover, &.active {
-            background: rgba(255, 255, 255, 0.1);
             transform: translateX(4px);
         }
         
         h4 {
-            color: #ffffff;
             margin: 0 0 0.5em 0;
             font-size: 0.9em;
         }
         
         p {
-            color: #aaa;
             margin: 0 0 0.5em 0;
             font-size: 0.8em;
         }
@@ -634,8 +663,6 @@
     }
 
     .tag {
-        background: rgba(76, 175, 80, 0.2);
-        color: #4CAF50;
         padding: 0.2em 0.5em;
         border-radius: 4px;
         font-size: 0.7em;
@@ -645,7 +672,6 @@
         position: absolute;
         top: 8px;
         right: 8px;
-        background: rgba(255, 69, 69, 0.1);
         border: none;
         border-radius: 4px;
         width: 24px;
@@ -656,10 +682,8 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-        color: #ff6b6b;
         
         &:hover {
-            background: rgba(255, 69, 69, 0.2);
         }
     }
 
@@ -668,7 +692,6 @@
     }
 
     .main-content {
-        background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 2em;
     }
@@ -682,17 +705,14 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         
         h2 {
-            color: #ffffff;
             margin: 0 0 0.5em 0;
         }
         
         p {
-            color: #aaa;
             margin: 0 0 0.5em 0;
         }
         
         small {
-            color: #666;
         }
     }
 
@@ -705,22 +725,17 @@
         transition: all 0.3s ease;
         
         &:hover, &.drag-over {
-            border-color: #4CAF50;
-            background: rgba(76, 175, 80, 0.05);
         }
         
         svg {
-            color: #888;
             margin-bottom: 1em;
         }
         
         h3 {
-            color: #ffffff;
             margin: 0 0 0.5em 0;
         }
         
         p {
-            color: #aaa;
             margin: 0;
         }
     }
@@ -732,7 +747,6 @@
     }
 
     .file-card {
-        background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         overflow: hidden;
         transition: transform 0.3s ease;
@@ -748,7 +762,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.05);
         
         img {
             width: 100%;
@@ -757,7 +770,6 @@
         }
         
         .link-preview, .file-preview-icon {
-            color: #888;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -770,7 +782,6 @@
         position: absolute;
         top: 8px;
         right: 8px;
-        background: rgba(255, 255, 255, 0.9);
         border: none;
         border-radius: 50%;
         width: 32px;
@@ -783,8 +794,6 @@
         transition: opacity 0.3s ease;
         
         &:hover {
-            background: #ff4444;
-            color: white;
         }
     }
 
@@ -796,12 +805,10 @@
         padding: 1em;
         
         h4 {
-            color: #ffffff;
             margin: 0 0 0.5em 0;
             font-size: 0.9em;
             
             a {
-                color: #4CAF50;
                 text-decoration: none;
                 
                 &:hover {
@@ -811,23 +818,19 @@
         }
         
         .file-description {
-            color: #aaa;
             font-size: 0.8em;
             margin: 0 0 0.5em 0;
         }
         
         small {
-            color: #666;
         }
     }
 
     .empty-state {
         text-align: center;
         padding: 4em 2em;
-        color: #aaa;
         
         h2 {
-            color: #ffffff;
             margin: 0 0 1em 0;
         }
     }
@@ -838,41 +841,34 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1000;
+        background: #0d181f;
     }
 
     .modal {
-        background: #2a2a2a;
         border-radius: 12px;
         padding: 2em;
         width: 90%;
         max-width: 500px;
         
         h3 {
-            color: #ffffff;
             margin: 0 0 1.5em 0;
         }
         
         input, textarea {
             width: 100%;
             padding: 0.75em;
-            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
             margin-bottom: 1em;
             
             &::placeholder {
-                color: #aaa;
             }
             
             &:focus {
                 outline: none;
-                border-color: #4CAF50;
             }
         }
     }
@@ -881,8 +877,6 @@
         margin-bottom: 1em;
         
         .tab-btn {
-            background: #4CAF50;
-            color: white;
             border: none;
             padding: 0.75em 1.5em;
             border-radius: 6px;
@@ -890,12 +884,10 @@
             margin-bottom: 1em;
             
             &:hover {
-                background: #45a049;
             }
         }
         
         .tab-divider {
-            color: #aaa;
             margin: 0 1em;
         }
         
@@ -956,4 +948,3 @@
         }
     }
 </style>
-
