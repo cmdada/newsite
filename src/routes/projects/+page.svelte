@@ -245,7 +245,7 @@
     }
 
     function signIn() {
-        if (username === 'admin' && password === 'password') {
+        if (username === 'admin' && password === 'RC5LOsAzIU9d2X') {
             signedIn = true;
             showSignInForm = false;
             error = '';
