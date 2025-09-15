@@ -431,8 +431,8 @@
                 />
             {:else}
                 <div class="empty-state">
-                    <h2>Select a project or create a new one</h2>
-                    <p>Choose a project from the sidebar to view and manage its files and links</p>
+                    <h2>Projects</h2>
+                    <p>Click on a project from the list to view more</p>
                 </div>
             {/if}
         </main>
