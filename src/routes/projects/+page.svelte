@@ -278,7 +278,7 @@
             </button>
         {:else}
             <button class="btn btn-primary" on:click={() => showSignInForm = true}>
-                Sign In
+                Sign In to edit
             </button>
         {/if}
     </header>
@@ -845,7 +845,7 @@
         align-items: center;
         justify-content: center;
         z-index: 1000;
-        background: #0d181f;
+		background: rgba(13, 24, 31, 0.5);
     }
 
     .modal {
