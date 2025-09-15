@@ -11,17 +11,17 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@iconify-json/arcticons": "^1.2.33",
+		"@iconify-json/arcticons": "^1.2.38",
 		"@iconify-json/fa-brands": "^1.2.2",
-		"@iconify-json/octicon": "^1.2.10",
+		"@iconify-json/octicon": "^1.2.14",
 		"@iconify-json/ph": "^1.2.2",
-		"@iconify-json/simple-icons": "^1.2.48",
-		"@sveltejs/adapter-node": "^5.3.1",
-		"@sveltejs/kit": "^2.33.0",
+		"@iconify-json/simple-icons": "^1.2.52",
+		"@sveltejs/adapter-node": "^5.3.2",
+		"@sveltejs/kit": "^2.39.1",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"firacode": "^6.2.0",
 		"js-yaml": "^4.1.0",
-		"sass": "^1.90.0",
+		"sass": "^1.92.1",
 		"svelte": "^4.2.20",
 		"svelte-check": "^3.8.6",
 		"svelte-preprocess": "^5.1.4",
@@ -29,14 +29,14 @@
 		"tslib": "^2.8.1",
 		"twemoji": "^14.0.2",
 		"unplugin-icons": "^0.17.4",
-		"vite": "^5.4.19"
+		"vite": "^5.4.20"
 	},
 	"type": "module",
 	"packageManager": "pnpm@8.3.1",
 	"dependencies": {
 		"@iconify-json/mdi": "^1.2.3",
 		"better-sqlite3": "^12.2.0",
-		"dayjs": "^1.11.13",
+		"dayjs": "^1.11.18",
 		"lucide-svelte": "^0.424.0",
 		"typescript": "^5.9.2"
 	}
