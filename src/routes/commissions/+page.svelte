@@ -87,7 +87,7 @@
         <p class="subtitle">Top quality wire harnesses, components, and custom electrical work for your project needs</p>
     </div>
 
-    <div class="category-filter glass-element">
+    <div class="category-filter element">
         <button 
             class="filter-btn" 
             class:active={selectedCategory === 'all'}
@@ -218,7 +218,7 @@
         .page-title {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--color-foam), var(--color-iris));
+            background: var(--color-foam);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -257,9 +257,8 @@
             }
 
             &.active {
-                background: linear-gradient(135deg, rgba(156, 207, 216, 0.3), rgba(196, 167, 231, 0.3));
+                background: rgba(196, 167, 231, 0.3);
                 border-color: var(--color-foam);
-                box-shadow: 0 0 20px rgba(156, 207, 216, 0.3);
             }
         }
     }
@@ -280,7 +279,6 @@
 
         &:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .product-image {
@@ -417,13 +415,12 @@
                 font-size: 1.1rem;
 
                 &.primary {
-                    background: linear-gradient(135deg, var(--color-foam), var(--color-iris));
+                    background: var(--color-foam);
                     color: var(--color-base);
                     border: none;
 
                     &:hover {
                         transform: translateY(-2px);
-                        box-shadow: 0 8px 20px rgba(156, 207, 216, 0.4);
                     }
                 }
 
@@ -539,7 +536,7 @@
                         .order-btn {
                             display: inline-block;
                             padding: 1rem 2rem;
-                            background: linear-gradient(135deg, var(--color-foam), var(--color-iris));
+                            background: var(--color-foam);
                             color: var(--color-base);
                             text-decoration: none;
                             border-radius: 8px;
@@ -548,7 +545,6 @@
 
                             &:hover {
                                 transform: translateY(-2px);
-                                box-shadow: 0 8px 20px rgba(156, 207, 216, 0.4);
                             }
                         }
                     }
