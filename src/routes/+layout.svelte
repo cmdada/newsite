@@ -170,7 +170,7 @@
         <div id="nav" class:open={mobileOpen}>
             <a href="/" class="glass-nav-link" class:current={$page.url.pathname == "/"} on:click={() => (mobileOpen = false)}>~/home</a>
             <a href="/art" class="glass-nav-link" class:current={$page.url.pathname == "/art"} on:click={() => (mobileOpen = false)}>~/art</a>
-            <a href="/commissions" class="glass-nav-link" class:current={$page.url.pathname == "/commissions"} on:click={() => (mobileOpen = false)}>~/commissions</a>
+            <a href="/commissions" class="glass-nav-link" class:current={$page.url.pathname == "/wires"} on:click={() => (mobileOpen = false)}>~/wires</a>
             <a href="/blog" class="glass-nav-link" class:current={$page.url.pathname == "/blog"} on:click={() => (mobileOpen = false)}>~/blog</a>
             <a href="/services" class="glass-nav-link" class:current={$page.url.pathname == "/services"} on:click={() => (mobileOpen = false)}>~/services</a>
             <a href="/projects" class="glass-nav-link" class:current={$page.url.pathname == "/projects"} on:click={() => (mobileOpen = false)}>~/projects</a>
