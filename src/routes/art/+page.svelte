@@ -19,6 +19,7 @@
         { src: "outlinedcaek.png", alt: "om nom", title: "om nom", description: "emoji for batfam made for sal" },
         { src: "by4.png", alt: "2by2", title: "2by2", description: "what's better than 1? 4" },
         { src: "xenia.png", alt: "xenia", title: "xenia", description: "i tried to draw her (xenia linux) and ended up just drawing a foxgirl" }
+        { src: "2036.png", alt: "2036 rebuilt logo", title: "2036 rebuilt logo", description: "the black knights' 2026 rebuilt logo" }
     ];
 
     function openModal(index) {
