@@ -39,11 +39,6 @@
 
     
     <a style="display: none" class="u-url u-uid" href="https://adabit.org">adabit.org</a>
-    <!-- least cursed leap year detection -->
-    <p>{String((Math.round(age * 10000000) / 10000000)).padEnd(10, "0")} years old</p>
-    {#if daysLeft.asDays() >= -31 && daysLeft.asSeconds() < 0}
-        <p>can you believe it folks‽ birthday! just {(daysLeft).humanize()} away‼</p>
-    {/if}
 
     <p class="separator p-note">professional nerd</p>
     <p class="p-note">sysadmin cosplayer<sup><a href="https://youtube.com/c/JeffGeerling">?</a></sup></p>
